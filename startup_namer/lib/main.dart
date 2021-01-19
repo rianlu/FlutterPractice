@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:startup_namer/imageview.dart';
+import 'package:startup_namer/shopcart.dart';
 
-// void main() => runApp(new MyApp());
-void main() => runApp(new ImageViewApp());
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   @override

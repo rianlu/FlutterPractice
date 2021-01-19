@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(new ImageViewApp());
+
 class ImageViewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,7 +10,6 @@ class ImageViewApp extends StatelessWidget {
       height: 240.0,
       fit: BoxFit.cover,
     );
-
     Widget titleSection = new Container(
       padding: const EdgeInsets.all(32.0),
       child: new Row(children: [
