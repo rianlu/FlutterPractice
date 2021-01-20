@@ -1,6 +1,6 @@
 # startup_namer
 
-## Getting Started
+## 目录
 
 `main.dart`
 
