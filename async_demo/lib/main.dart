@@ -27,7 +27,7 @@ class SampleAppPage extends StatefulWidget {
 }
 
 class _SampleAppPageState extends State<SampleAppPage> {
-  Map widgets = {};
+  Map widgets = {"data": List()};
 
   @override
   void initState() {
@@ -42,11 +42,21 @@ class _SampleAppPageState extends State<SampleAppPage> {
         appBar: AppBar(
           title: Text("Sample App"),
         ),
-        body: ListView.builder(
-            itemCount: widgets["data"].length,
-            itemBuilder: (BuildContext context, int position) {
-              return getRow(position);
-            }));
+        body: getBody());
+  }
+
+  Widget getBody() {
+    if (widgets["data"].length == 0) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      return ListView.builder(
+          itemCount: widgets["data"].length,
+          itemBuilder: (BuildContext context, int position) {
+            return getRow(position);
+          });
+    }
   }
 
   Widget getRow(int i) {
