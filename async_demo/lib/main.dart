@@ -66,6 +66,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
         child: Container(
             margin: EdgeInsets.all(16.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('${widgets["data"][i]["id"]}'),
                 Expanded(
