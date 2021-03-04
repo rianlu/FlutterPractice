@@ -8,7 +8,7 @@
 
 `text_style.dart`
 
-[文本及样式][(https://flutterchina.club/tutorials/layout/](https://book.flutterchina.club/chapter3/text.html))
+[文本及样式] (https://book.flutterchina.club/chapter3/text.html)
 
 `button.dart`
 
@@ -17,4 +17,12 @@
 `iamge_icon.dart`
 
 [图片及ICON](https://book.flutterchina.club/chapter3/img_and_icon.html)
+
+`switch_checkbox.dart`
+
+[单选框和复选框](https://book.flutterchina.club/chapter3/radio_and_checkbox.html)
+
+`textfield_form.dart`
+
+[输入框和表单](https://book.flutterchina.club/chapter3/input_and_form.html)
 

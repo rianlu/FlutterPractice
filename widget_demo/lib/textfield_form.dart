@@ -211,31 +211,68 @@ class FormRoute extends StatefulWidget {
 }
 
 class _FormState extends State<FormRoute> {
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _pwdController = TextEditingController();
+  GlobalKey _fromKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextFormField(
-          decoration: InputDecoration(labelText: '用户名', hintText: '请输入用户名'),
-          validator: (value) {
-            return value.trim().length > 0 ? null : '用户名不能为空';
-          },
-        ),
-        TextFormField(
-          decoration: InputDecoration(labelText: '密码', hintText: '请输入密码'),
-          validator: (value) {
-            return value.trim().length >= 6 ? null : '密码不能小于6位';
-          },
-        ),
-        Builder(builder: (context) {
-          return RaisedButton(
-            child: Text('Login'),
-            onPressed: () {
-              Form.of(context).validate();
-            },
-          );
-        })
-      ],
-    );
+    return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+        child: Form(
+          key: _fromKey,
+          autovalidateMode: AutovalidateMode.disabled,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _nameController,
+                decoration:
+                    InputDecoration(labelText: '用户名', hintText: '请输入用户名'),
+                validator: (value) {
+                  return value.trim().length > 0 ? null : '用户名不能为空';
+                },
+              ),
+              TextFormField(
+                controller: _pwdController,
+                decoration: InputDecoration(labelText: '密码', hintText: '请输入密码'),
+                validator: (value) {
+                  return value.trim().length >= 6 ? null : '密码不能小于6位';
+                },
+              ),
+              // 登录按钮
+              Padding(
+                padding: const EdgeInsets.only(top: 28.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: RaisedButton(
+                      padding: EdgeInsets.all(15.0),
+                      child: Text('登录'),
+                      color: Theme.of(context).primaryColor,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        if ((_fromKey.currentState as FormState).validate()) {}
+                        // Form.of(context).validate();
+                      },
+                    )),
+                    Expanded(
+                      child: Builder(builder: (context) {
+                        return RaisedButton(
+                            padding: EdgeInsets.all(15.0),
+                            child: Text('登录'),
+                            color: Theme.of(context).primaryColor,
+                            textColor: Colors.white,
+                            onPressed: () {
+                              // 该方式不能直接使用build的context
+                              if (Form.of(context).validate()) {}
+                            });
+                      }),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }
