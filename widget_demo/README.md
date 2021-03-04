@@ -26,3 +26,7 @@
 
 [输入框和表单](https://book.flutterchina.club/chapter3/input_and_form.html)
 
+`progress_indicator.dart`
+
+[进度指示器](https://book.flutterchina.club/chapter3/progress.html)
+
