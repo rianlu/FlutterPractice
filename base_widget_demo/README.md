@@ -8,7 +8,7 @@
 
 `text_style.dart`
 
-[文本及样式] (https://book.flutterchina.club/chapter3/text.html)
+[文本及样式](https://book.flutterchina.club/chapter3/text.html)
 
 `button.dart`
 
