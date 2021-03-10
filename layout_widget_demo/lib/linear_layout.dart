@@ -100,7 +100,7 @@ class NestColumnTest extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            // 对于嵌套Column/Row，如果外层不适用Expanded包裹
+            // 对于嵌套Column/Row，如果外层不使用Expanded包裹
             // 则设置mainAxisSize: MainAxisSize.max无效
             Expanded(
               child: Container(
