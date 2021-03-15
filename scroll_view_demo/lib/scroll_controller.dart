@@ -80,6 +80,7 @@ class _ScrollControllerRouteState extends State<ScrollControllerRoute> {
   }
 }
 
+// 滚动监听
 class ScrollNotificationRoute extends StatefulWidget {
   @override
   _ScrollNotificationRouteState createState() =>
@@ -103,7 +104,6 @@ class _ScrollNotificationRouteState extends State<ScrollNotificationRoute> {
                 setState(() {
                   _progress = '${(progress * 100).toInt()}%';
                 });
-                print("BottomEdge: ${notification.metrics.extentAfter == 0}");
                 print("atEdge: ${notification.metrics.atEdge}");
                 return true;
               },
