@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: ScrollControllerRoute()));
+  runApp(MaterialApp(
+      home:
+          // ScrollControllerRoute()
+          ScrollNotificationRoute()));
 }
 
 class ScrollControllerRoute extends StatefulWidget {
@@ -73,6 +76,53 @@ class _ScrollControllerRouteState extends State<ScrollControllerRoute> {
                 //   );
                 // }));
               }),
+    );
+  }
+}
+
+class ScrollNotificationRoute extends StatefulWidget {
+  @override
+  _ScrollNotificationRouteState createState() =>
+      _ScrollNotificationRouteState();
+}
+
+class _ScrollNotificationRouteState extends State<ScrollNotificationRoute> {
+  String _progress = '0%';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ScrollListener'),
+      ),
+      body: Scrollbar(
+          child: NotificationListener<ScrollNotification>(
+              onNotification: (notification) {
+                double progress = notification.metrics.pixels /
+                    notification.metrics.maxScrollExtent;
+                setState(() {
+                  _progress = '${(progress * 100).toInt()}%';
+                });
+                print("BottomEdge: ${notification.metrics.extentAfter == 0}");
+                print("atEdge: ${notification.metrics.atEdge}");
+                return true;
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  ListView.builder(
+                      itemCount: 100,
+                      itemExtent: 50.0,
+                      itemBuilder: (context, index) {
+                        return ListTile(title: Text('$index'));
+                      }),
+                  CircleAvatar(
+                    child: Text(_progress),
+                    radius: 30.0,
+                    backgroundColor: Colors.black54,
+                  )
+                ],
+              ))),
     );
   }
 }
