@@ -21,3 +21,7 @@
 `animated_switcher.dart`
 
 [通用“动画切换”组件（AnimatedSwitcher）](https://book.flutterchina.club/chapter9/animated_switcher.html)
+
+`animation_transition.dart`
+
+[动画过渡组件](https://book.flutterchina.club/chapter9/animated_widgets.html)
